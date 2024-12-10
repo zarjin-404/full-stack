@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
-export const MessageSchena = z.object({
-  content: z.string().min(15, 'massage atlist 10 ').max(100, 'must me 100'),
+export const messageSchema = z.object({
+  content: z
+    .string()
+    .min(10, { message: 'Content must be at least 10 characters.' })
+    .max(300, { message: 'Content must not be longer than 300 characters.' }),
 });
